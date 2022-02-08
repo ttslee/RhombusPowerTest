@@ -22,7 +22,7 @@ public class GameManager : MonoBehaviour
     {
         loadingScreen.gameObject.SetActive(true);
         scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.TITLESCREEN));
-        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.MANAGER, LoadSceneMode.Additive));
+        scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.GAME, LoadSceneMode.Additive));
         StartCoroutine(GetSceneLoadProgress());
     }
     float totalSceneProgress;

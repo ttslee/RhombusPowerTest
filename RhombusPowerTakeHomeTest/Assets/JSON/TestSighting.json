@@ -1,0 +1,24 @@
+{
+	"SightingInfo":[{
+	"Date": "06/01/1950",
+	"Time": "16:00:00",
+	"City": "Philadelphia",
+	"State": "MS",
+	"Country": "US",
+	"Shape": "Disk",
+	"Duration": 600,
+	"Latitude": 32.7714,
+	"Longitude": -89.1167
+},
+{
+	"Date": "06/01/1950",
+	"Time": "16:00:00",
+	"City": "Philadelphia",
+	"State": "MS",
+	"Country": "US",
+	"Shape": "Disk",
+	"Duration": 600,
+	"Latitude": 32.7714,
+	"Longitude": -89.1167
+}]
+}

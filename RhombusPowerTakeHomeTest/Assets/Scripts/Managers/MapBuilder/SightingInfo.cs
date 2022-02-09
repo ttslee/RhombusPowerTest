@@ -27,7 +27,6 @@ public class SightingInfo
     public float Longitude;
 
     public override string ToString () => this.State;
-
     public Vector2 ToVector2 () 
         => new Vector2( (float) Math.Sin( this.Longitude * Deg2Rad * 0.5 ) , (float) Math.Sin( this.Latitude * Deg2Rad ) );
 

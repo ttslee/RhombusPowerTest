@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 public class GameUI : MonoBehaviour
 {
     public static GameUI instance;
     public bool menuOpen{get;set;}
     public GameObject pauseMenu;
+    public TMP_Text spottedCount;
     private void Awake() 
     {
         if (instance != null && instance != this)

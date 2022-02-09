@@ -43,6 +43,7 @@ public class MapBuilder : MonoBehaviour
     public void FillSightingInfo()
     {
         sightingInfo = JsonHelper.FromJson<SightingInfo>(jsonFile.text);
+        
         GetMinLonAndLat();
         GetMaxLonAndLat();
     }
@@ -94,6 +95,7 @@ public class MapBuilder : MonoBehaviour
             Debug.Log(worldPos);
             GameObject sitingLocation = Instantiate(SightingLocation,worldPos,Quaternion.identity,SightingLocationParent.transform);
             sitingLocation.gameObject.name = s.City;
+            s.SplitDateAndTime();
             sitingLocation.GetComponentInChildren<SightingProperties>().SetSightingInfo(s);
         }
     }

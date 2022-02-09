@@ -4,15 +4,28 @@ using UnityEngine;
 
 public class SightingManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static SightingManager instance;
+
+    private void Awake() {
+        if(instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            instance = this;
+        }
+    }
+    private void Start() 
     {
+        SplitSightingData();
         
     }
-
-    // Update is called once per frame
-    void Update()
+    private void SplitSightingData()
     {
-        
+        foreach (var sightingLoc in MapBuilder.instance.sightingInfo)
+        {
+            sightingLoc.SplitDateAndTime();
+        }
     }
 }

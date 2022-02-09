@@ -37,4 +37,21 @@ public class SightingInfo
     public Vector3 ToVector3UnitSphere () 
         => Quaternion.Euler(0,-(float)this.Longitude,0) * ( Quaternion.Euler(-(float)this.Latitude,0,0) * Vector3.forward );
     const double Deg2Rad = Mathf.PI / 180.0;
+
+    public int GetMonth() => this.month;
+    public int GetDay() => this.day;
+    public int GetYear() => this.year;
+    public int GetHour() => this.hour;
+
+    private int month, day, year;
+    private int hour;
+    public void SplitDateAndTime()
+    {
+        string[] date = Date.Split('/');
+        month = Int32.Parse(date[0]);
+        day = Int32.Parse(date[1]);
+        year = Int32.Parse(date[2]);
+        string[] time = Time.Split(':');
+        hour = Int32.Parse(time[0]);
+    }
 }

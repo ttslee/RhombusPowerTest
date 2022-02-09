@@ -5,7 +5,7 @@ using System;
 
 public class MapBuilder : MonoBehaviour
 {
-    public Texture2D texture;
+    public GameObject SightingLocationParent;
     public static MapBuilder instance;
 
     public GameObject SightingLocation;
@@ -92,7 +92,7 @@ public class MapBuilder : MonoBehaviour
             Vector3 v3Point = s.ToVector3();
             Vector3 worldPos = Vector3.zero + Vector3.Scale(v3Point,worldSize*0.5f);
             Debug.Log(worldPos);
-            GameObject sitingLocation = Instantiate(SightingLocation,worldPos,Quaternion.identity);
+            GameObject sitingLocation = Instantiate(SightingLocation,worldPos,Quaternion.identity,SightingLocationParent.transform);
             sitingLocation.gameObject.name = s.City;
             sitingLocation.GetComponentInChildren<SightingProperties>().SetSightingInfo(s);
         }

@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static SoundManager instance;
+    private Animator animator;
+    private void Awake() 
     {
-        
+        animator = GetComponent<Animator>();
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            instance = this;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    private void Start() {
+        animator.SetTrigger("UFOAnimation");
     }
 }

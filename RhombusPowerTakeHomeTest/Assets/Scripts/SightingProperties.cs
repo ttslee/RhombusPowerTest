@@ -11,11 +11,4 @@ public class SightingProperties : MonoBehaviour
     {
         sightingInfo = s;
     }
-
-    private void LateUpdate() {
-        if(!GameUI.instance.menuOpen)
-        {
-            
-        }
-    }
 }

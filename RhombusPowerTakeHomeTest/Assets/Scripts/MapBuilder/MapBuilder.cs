@@ -5,10 +5,12 @@ using System;
 
 public class MapBuilder : MonoBehaviour
 {
-    public GameObject SitingLocation;
+    public Texture2D texture;
+    public static MapBuilder instance;
+
+    public GameObject SightingLocation;
     public float latitudeOffset;
     public float longitudeOffset;
-    public static MapBuilder instance;
     public TextAsset jsonFile;
     public SightingInfo[] sightingInfo;
 
@@ -34,17 +36,18 @@ public class MapBuilder : MonoBehaviour
         } else {
             instance = this;
         }
-        fillSightingInfo();
+        FillSightingInfo();
+        SpawnSightingLocations();
     }
 
-    public void fillSightingInfo()
+    public void FillSightingInfo()
     {
         sightingInfo = JsonHelper.FromJson<SightingInfo>(jsonFile.text);
-        getMinLonAndLat();
-        getMaxLonAndLat();
+        GetMinLonAndLat();
+        GetMaxLonAndLat();
     }
 
-    private void getMinLonAndLat()
+    private void GetMinLonAndLat()
     {
         float minLat = float.MaxValue;
         float minLon = float.MaxValue;
@@ -59,7 +62,7 @@ public class MapBuilder : MonoBehaviour
         this.minLon = minLon;
     }
 
-    private void getMaxLonAndLat()
+    private void GetMaxLonAndLat()
     {
         float maxLat = float.MinValue;
         float maxLon = float.MinValue;
@@ -72,5 +75,26 @@ public class MapBuilder : MonoBehaviour
         }
         this.maxLat = maxLat;
         this.maxLon = maxLon;
+    }
+    private Vector3 worldSize = new Vector3(2000f, 0.0f, 1000f);
+    private void SpawnSightingLocations()
+    {
+        // float latDiff = Math.Abs(maxLat - minLat);
+        // float lonDiff = Math.Abs(maxLon - minLon);
+        foreach(SightingInfo s in sightingInfo)
+        {
+            // float longitudeProportion = (s.Longitude - minLon)/lonDiff;
+            // float latitudeProportion = (s.Latitude - minLat)/latDiff;
+            // Debug.Log(longitudeProportion);
+            // Debug.Log(latitudeProportion);
+            // Vector3 spawnLocation = new Vector3(latitudeOffset * latitudeProportion, 0.0f, longitudeOffset*longitudeProportion);
+            // Debug.Log(spawnLocation);
+            Vector3 v3Point = s.ToVector3();
+            Vector3 worldPos = Vector3.zero + Vector3.Scale(v3Point,worldSize*0.5f);
+            Debug.Log(worldPos);
+            GameObject sitingLocation = Instantiate(SightingLocation,worldPos,Quaternion.identity);
+            sitingLocation.gameObject.name = s.City;
+            sitingLocation.GetComponentInChildren<SightingProperties>().SetSightingInfo(s);
+        }
     }
 }

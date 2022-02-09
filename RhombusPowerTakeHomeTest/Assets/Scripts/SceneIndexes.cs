@@ -5,6 +5,6 @@ using UnityEngine;
 public enum SceneIndexes
 {
     MANAGER = 0,
-    TITLESCREEN = 1,
+    MENU = 1,
     GAME = 2,
 }

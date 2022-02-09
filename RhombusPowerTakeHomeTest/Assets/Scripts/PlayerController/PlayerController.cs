@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 turn;
 
     public float speed = 5;
-    private bool menuOpen = false;
+    
     // Update is called once per frame
     private void Start() 
     {
@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         
-        if(!menuOpen){
+        if(!GameUI.instance.menuOpen){
             if(Input.GetKey(KeyCode.W))
             {
                 transform.Translate(Vector3.forward * Time.deltaTime * speed, Space.Self);
@@ -39,6 +39,13 @@ public class PlayerController : MonoBehaviour
             transform.localRotation = Quaternion.Euler(-turn.y, turn.x, 0f);
         }
         
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(!GameUI.instance.menuOpen)
+                GameUI.instance.OpenPauseMenu();
+            else
+                GameUI.instance.ResumeGame();
+        }
 
     }
 }

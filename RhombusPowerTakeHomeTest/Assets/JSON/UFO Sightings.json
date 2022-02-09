@@ -8236,8 +8236,8 @@
       "Country": "US",
       "Shape": "Circle",
       "Duration": 10800,
-      "Latitude": 40.4842,
-      "Longitude": -88.9936
+      "Latitude": 39.1653,
+      "Longitude": -86.5264
     },
     {
       "Date": "08/10/1972",
@@ -8654,7 +8654,7 @@
       "Country": "US",
       "Shape": "Light",
       "Duration": 1200,
-      "Latitude": "Light",
+      "Latitude": 39.1653,
       "Longitude": -86.5264
     },
     {
@@ -10073,7 +10073,7 @@
       "Country":"US",
       "Shape": "Diamond",
       "Duration": 60,
-      "Latitude": 60,
+      "Latitude": 38.8467,
       "Longitude": -91.9478
     },
     {
@@ -37156,7 +37156,7 @@
       "Shape": "Triangle",
       "Duration": 5,
       "Latitude": 44.8408,
-      "Longitude": -93.2981
+      "Longitude": -93.2983
     },
     {
       "Date": "08/09/1997",
@@ -57836,7 +57836,7 @@
       "Shape": "Circle",
       "Duration": 7200,
       "Latitude": 38.8467,
-      "Longitude": -91.9478
+      "Longitude": 91.9478
     },
     {
       "Date": "30/11/1999",

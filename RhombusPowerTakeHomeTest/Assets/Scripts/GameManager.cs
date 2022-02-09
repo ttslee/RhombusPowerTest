@@ -12,25 +12,30 @@ public class GameManager : MonoBehaviour
     public TMP_Text progressText;
     private void Awake() 
     {
-        instance = this;
+        if (instance != null && instance != this)
+        {
+            Destroy(this.gameObject);
+        } else {
+            instance = this;
+        }
         
-        SceneManager.LoadSceneAsync((int)SceneIndexes.TITLESCREEN, LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync((int)SceneIndexes.MENU, LoadSceneMode.Additive);
     }
     
     List<AsyncOperation> scenesLoading = new List<AsyncOperation>(); 
     public void LoadGame()
     {
         loadingScreen.gameObject.SetActive(true);
-        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.TITLESCREEN));
+        scenesLoading.Add(SceneManager.UnloadSceneAsync((int)SceneIndexes.MENU));
         scenesLoading.Add(SceneManager.LoadSceneAsync((int)SceneIndexes.GAME, LoadSceneMode.Additive));
         StartCoroutine(GetSceneLoadProgress());
     }
     float totalSceneProgress;
     public IEnumerator GetSceneLoadProgress()
     {
-        foreach(AsyncOperation a in scenesLoading)
+        for (int i = 0; i < scenesLoading.Count; i++)
         {
-            while(!a.isDone)
+            while(!scenesLoading[i].isDone)
             {
                 totalSceneProgress = 0;
                 yield return null;
@@ -40,9 +45,11 @@ public class GameManager : MonoBehaviour
                 }
                 totalSceneProgress = (totalSceneProgress/scenesLoading.Count) *100f;
             }
+            bar.value = Mathf.RoundToInt(totalSceneProgress);
+            progressText.text = totalSceneProgress + "%";
+            yield return null;
         }
-        bar.value = Mathf.RoundToInt(totalSceneProgress);
-        progressText.text = totalSceneProgress * 100 + "%";
+        
         loadingScreen.gameObject.SetActive(false);
     }
 }

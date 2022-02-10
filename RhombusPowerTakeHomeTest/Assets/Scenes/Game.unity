@@ -1367,7 +1367,6 @@ GameObject:
   m_Component:
   - component: {fileID: 447802129}
   - component: {fileID: 447802128}
-  - component: {fileID: 447802127}
   m_Layer: 0
   m_Name: MapBuilder
   m_TagString: Untagged
@@ -1375,20 +1374,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &447802127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 447802126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4fd33be0f4841c84c87401b23d47ae28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _worldSize: {x: 100, y: 0, z: 100}
-  _worldOrigin: {x: 0, y: 0, z: 0}
 --- !u!114 &447802128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2019,7 +2004,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &872630903
 MonoBehaviour:
   m_ObjectHideFlags: 0

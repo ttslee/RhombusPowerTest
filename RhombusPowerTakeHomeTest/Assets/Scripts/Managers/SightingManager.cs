@@ -30,11 +30,11 @@ public class SightingManager : MonoBehaviour
     }
     public IEnumerator ClockAndGameUpdater()
     {
-        while(GameUI.instance.menuOpen || GameUI.instance.visualizationOpen)
-                yield return null;
         SightingInfo[] sightingInfo = MapBuilder.instance.sightingInfo;
         while(index < sightingInfo.Length)
         {
+            while(GameUI.instance.menuOpen || GameUI.instance.visualizationOpen)
+                yield return null;
             string[] t = time.text.Split(':');
             int hour = Int32.Parse(t[0]);
             

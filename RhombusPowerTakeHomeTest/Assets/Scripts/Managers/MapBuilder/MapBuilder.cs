@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
-
+using System.IO;
+using UnityEditor;
 public class MapBuilder : MonoBehaviour
 {
     public GameObject SightingLocationParent;
@@ -12,6 +13,7 @@ public class MapBuilder : MonoBehaviour
     public float latitudeOffset;
     public float longitudeOffset;
     public TextAsset jsonFile;
+    public TextAsset toJsonFile;
     public SightingInfo[] sightingInfo;
 
     [SerializeField]
@@ -39,7 +41,6 @@ public class MapBuilder : MonoBehaviour
         FillSightingInfo();
         SpawnSightingLocations();
     }
-
     public void FillSightingInfo()
     {
         sightingInfo = JsonHelper.FromJson<SightingInfo>(jsonFile.text);

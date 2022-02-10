@@ -92,7 +92,6 @@ public class MapBuilder : MonoBehaviour
             // Debug.Log(spawnLocation);
             Vector3 v3Point = s.ToVector3();
             Vector3 worldPos = Vector3.zero + Vector3.Scale(v3Point,worldSize*0.5f);
-            Debug.Log(worldPos);
             GameObject sitingLocation = Instantiate(SightingLocation,worldPos,Quaternion.identity,SightingLocationParent.transform);
             sitingLocation.gameObject.name = s.City;
             s.SplitDateAndTime();

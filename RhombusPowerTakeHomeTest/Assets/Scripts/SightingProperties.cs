@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class SightingProperties : MonoBehaviour
 {
-    [SerializeField]
-    private SightingInfo sightingInfo;
+    public SightingInfo sightingInfo;
 
     public void SetSightingInfo(SightingInfo s)
     {
